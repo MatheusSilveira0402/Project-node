@@ -1,0 +1,41 @@
+
+app.get('/', function(req, res){
+    res.send({msg:'Olá'})
+});
+
+app.post('/api', function(req, res){
+    
+    
+
+    res.send(dados);
+
+    db.open( function(err, mongoclient){
+        mongoclient.collection('usuario', function(err,  collection){
+            collection.insert(dados, function(err, results){
+                if(err){
+                    console.log(err)
+                } else {
+                    console.log(results)
+                }
+                mongoclient.close();
+            });
+        });
+    });
+
+});
+
+app.get('/api', function(req, res){
+    db.open( function(err, mongoclient){
+        mongoclient.collection('usuario', function(err,  collection){
+            collection.find().toArray( function(err, results){
+                if(err){
+                    res.json(err);
+                } else {
+                    res.json(results);
+                }
+                mongoclient.close();
+            });
+        });
+    });
+
+});

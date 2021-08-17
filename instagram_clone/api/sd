@@ -1,0 +1,30 @@
+    public boolean validar(){
+        return true;
+    }
+    public boolean validar(){
+        if(this.textNomeUsuario.getText().toString().length() >= 3  
+        || this.textUsername.getText().toString().length() >= 3
+        || this.textSenha.getText().toString().length() >= 3
+        || this.textBairro.getText().toString().length() >= 2
+        || this.textCep.getText().toString().length() >= 3
+        || this.textCidade.getText().toString().length() >= 2
+        || this.textLougradouro.getText().toString().length() >= 1
+        || this.textNumero.getText().toString().length() >= 1
+                ) {
+            return false;
+        }
+        return true;
+    }
+
+
+
+
+     String nome = textNomeUsuario.getText().toString();
+        String username = textUsername.getText().toString();
+        String senha = textSenha.getText().toString();
+        Endereco e = new Endereco();
+        e.setBairro(this.textBairro.getText().toString());
+        e.setCep(this.textCep.getText().toString());
+        e.setCidade(this.textCidade.getText().toString());
+        e.setLougradouro(this.textLougradouro.getText().toString());
+        e.setNumero(this.textNumero.getText().toString
